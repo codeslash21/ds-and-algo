@@ -1,0 +1,1 @@
+- [Design LL](https://leetcode.com/problems/design-linked-list/description/)  -  [Solution](https://github.com/codeslash21/Competitive-programming/tree/main/leetcode/707.%20Design%20Linked%20List)
