@@ -13,37 +13,72 @@ class Node {
 }
 
 public class DLL {
-  // insert a node before a particular value
-  public static Node insertBefore(Node head, int target, int val) {
-    Node curr=head, node = new Node(val);
-    if(head=null)
-      return;
-    if(head.val==target) {
-      node.next=head;
+  // insert at head
+  public static Node insertAtHead(Node head, int val) {
+    Node node = new Node(val);
+    node.next=head;
+    node.prev=null;
+    if(head!=null)
       head.prev=node;
+    return head;
+  }
+  // insert at the end of LL
+  public static Node insertAtEnd(Node head, int val) {
+    Node node =  new Node(val);
+    Node curr=head;
+    if(curr!=null) {
+      while(curr.next!=null)
+        curr=curr.next;
+      curr.next=node;
+      node.next=null;
+      node.prev=curr;
+    }
+    else {
       head=node;
-      return head;
     }
-    while(curr!=null) {
-      if(curr.val==target)
-        break;
-      curr=curr.next;
-    }
-    if(curr==null)
-      return;
-    node.next=curr;
-    node.prev=curr.prev;
-    curr.prev.next=node;
-    curr.prev=node;
     return head;
   }
 
-  // delete a particular node by value
-  public static void deleteNode(Node head, int target) {
-    if(head==null)
-      return;
-    Node dummy = new Node(0, head), curr=head;
+  // insert node after a particular value
+  public static Node insertAfterValue(Node head, int data, int target) {
+    Node node = new Node(data);
+    Node curr=head;
     while(curr!=null) {
       if(curr.val==target) {
-        curr.next
-}
+        node.next=curr.next;
+        curr.next.prev=node;
+        node.prev=curr;
+        curr.next=node;
+        return head;
+      }
+      curr=curr.next;
+    }
+    System.out.println(target+" not present in the list.");
+    return head;
+  }
+
+  // delete a node with given value from LL
+  public static Node deleteNode(Node head, int val) {
+    if(head==null) {
+      System.out.println("List is empty.");
+      return head;
+    }
+    Node dummy = new Node(0);
+    dummy.next=head;
+    head.prev=dummy;
+    Node curr=dummy.next;
+    while(curr!=null) {
+      if(curr.val==val) {
+        curr.prev.next=curr.next;
+        if(curr.next!=null)
+          curr.next.prev=curr.prev;
+        if(dummy.next!=null)
+          dummy.next.prev=null;
+        return dummy.next;
+      }
+      curr=curr.next;
+    }
+    System.out.println(val+" is not present in the list.");
+    return head;
+  }
+   
