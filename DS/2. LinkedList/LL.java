@@ -12,83 +12,76 @@ class Node {
   }
 }
 
-class LL {
-  Node head;
-  int len;
-  // constructor
-  public LL() {
-    head = new Node(0);
-    len=0;
+public class LL {
+  // insert at head
+  public static Node insertAtHead(Node head, int val) {
+    Node node = new Node(val);
+    node.next=head;
+    node.prev=null;
+    if(head!=null)
+      head.prev=node;
+    return head;
   }
-  
-  // insert before a particular index. 0 based indexing
-  public void insertAtPosition(int index, int val) {
-    if(index>=len || index<0)
-        return;
-    Node prev=head, node = new Node(val);
-    for(int i=0;i<index;i++)
-        prev=prev.next;
-    node.next=prev.next;
-    prev.next=node;
-    len++
-  }
-  
-  // insert before a particular value
-  public void insertBeforeVal(int target, int val) {
-    Node prev=head, node = new Node(val);
-    while(prev.next!=null) {
-      if(prev.next.val==target)
-        break;
-      prev=prev.next;
+  // insert at the end of LL
+  public static Node insertAtEnd(Node head, int val) {
+    Node node =  new Node(val);
+    Node curr=head;
+    if(curr!=null) {
+      while(curr.next!=null)
+        curr=curr.next;
+      curr.next=node;
+      node.next=null;
+      node.prev=curr;
     }
-    // target value not found
-    if(prev.next==null)
-      return;
-    // target value found
-    node.next=prev.next;
-    prev.next=node;
-    len++;
+    else {
+      head=node;
+    }
+    return head;
   }
-  
-  // insert after a particular value
-  public void insertAfterVal(int target, int val) {
-    Node curr=head.next, node = new Node(val);
+
+  // insert node after a particular value
+  public static Node insertAfterValue(Node head, int data, int target) {
+    Node node = new Node(data);
+    Node curr=head;
     while(curr!=null) {
-      if(curr.val==target)
-        break;
+      if(curr.val==target) {
+        node.next=curr.next;
+        curr.next.prev=node;
+        node.prev=curr;
+        curr.next=node;
+        return head;
+      }
       curr=curr.next;
     }
-    if(curr==null)  // value not found
-      return;
-    node.next=curr.next;
-    curr.next=node;
-    len++;
+    System.out.println(target+" not present in the list.");
+    return head;
   }
 
-  // delete node with a particular value
-  public void delete(int target) {
-    Node prev=head;
-    while(prev.next!=null) {
-      if(prev.next.val==target)
-        break;
-      prev=prev.next;
+  // delete a node with given value from LL
+  public static Node deleteNode(Node head, int val) {
+    if(head==null) {
+      System.out.println("List is empty.");
+      return head;
     }
-    if(prev.next==null)
-      return;
-    prev.next=prev.next.next;
-    len--;
+    Node dummy = new Node(0);
+    dummy.next=head;
+    head.prev=dummy;
+    Node curr=dummy.next;
+    while(curr!=null) {
+      if(curr.val==val) {
+        curr.prev.next=curr.next;
+        if(curr.next!=null)
+          curr.next.prev=curr.prev;
+        if(dummy.next!=null)
+          dummy.next.prev=null;
+        return dummy.next;
+      }
+      curr=curr.next;
+    }
+    System.out.println(val+" is not present in the list.");
+    return head;
   }
-
-  // delete node at a particular index
-  public void deleteAtIndex(int index) {
-    if(index<0 || index>=len)
-      return;
-    Node prev=head;
-    for(int i=0;i<index;i++)
-      prev=prev.next;
-    prev.next=prev.next.next;
-    len--;
-  }
+  
 
   // find a node with a particular value
   public Node searchNode(int target) {
