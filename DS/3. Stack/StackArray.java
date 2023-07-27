@@ -7,7 +7,7 @@ class StackArray<T> {
     this.size=size;
     stack = new ArrayList<T>(size);
   }
-  void push(T val) {
+  public void push(T val) {
     if(top+1==size) {
       System.out.println("Stack overflow");
     }
@@ -21,7 +21,7 @@ class StackArray<T> {
       }
     }
   }
-  T top() {
+  public T peek() {
     if(top==-1) {
       System.out.println("Stack underflow");
       return null;
@@ -30,7 +30,7 @@ class StackArray<T> {
       stack.get(top);
     }
   }
-  void pop() {
+  public void pop() {
     if(top==-1) {
       Systemout.println("Stack underflow");
     }
