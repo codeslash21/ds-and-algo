@@ -1,0 +1,6 @@
+- **Stable Sorting Algo:** Insertion sort, merge sort, bubble sort, selection sort, counting sort, radix sort.
+- **Unstable Sorting Algo:** Quick sort, heap sort, shell sort.
+- **Inplace Sorting Algo:** Insertion sort, bubble sort, selection sort, heap sort, shell sort.
+- **Not-inplace Srting Algo:** Quick sort, merge sort.
+- **External Sorting Algo:** Merge sort
+- **Online Sorting Algo:** Insertion sort
