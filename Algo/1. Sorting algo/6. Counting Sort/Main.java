@@ -1,6 +1,6 @@
 // We can apply counting sort when the elements are in a particular range
 // t.c.=O(n+range)=O(n) if range=O(n)
-// s.c.=O(range+n)
+// s.c.=O(range+n), its a stable srting algorithm but not a inplace sorting algorithm.
 import java.util.*;
 
 class Main {
