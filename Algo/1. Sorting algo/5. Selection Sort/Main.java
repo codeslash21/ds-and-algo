@@ -1,6 +1,6 @@
 // In selection sort at ith iteration we get ith min element at the correct position
 // t.c.=O(n^2) for best case and worst case. In worst case when the array is sorted in ascending order there will be O(n) swaps.
-// s.c.=O(1), its in-place sorting algorithm
+// s.c.=O(1), its in-place sorting algorithm, but its not a stable sorting algorithm.
 import java.util.*;
 
 class Main {
