@@ -1,5 +1,5 @@
-// merge sort has better worst case time complexity than insertion sort. Merge sort can be used for external sorting
-// t.c.=O(nlogn), s.c.=O(n), for merge procedure
+// merge sort has better worst case time complexity than insertion sort. Merge sort can be used for external sorting. Its a stable sorting algorithm but not inplace.
+// t.c.=O(nlogn), s.c.=O(n), for merge procedure.
 import java.util.*;
 
 class Main {
