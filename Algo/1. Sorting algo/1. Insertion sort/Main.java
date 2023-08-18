@@ -1,5 +1,5 @@
 // t.c.=O(n) for best case, O(n^2) for worst case and avg case
-// s.c.=O(1), its inplace sorting algorithm
+// s.c.=O(1), its inplace sorting algorithm. This is also stable and online sorting algorithm
 import java.util.*;
 
 class Main {
