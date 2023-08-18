@@ -1,6 +1,6 @@
 // In radix sort we apply counting sort on each digit of the number. 
 // t.c.=O(d*(n+b)) where d is the number of digits in the max value, n=total number of elements, b=base of the number system or the range
-// s.c.=O(n+b)
+// s.c.=O(n+b), its a stable sorting algorithm, but not inplace sorting algorithm.
 import java.util.*;
 
 class Main {
