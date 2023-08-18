@@ -1,6 +1,6 @@
 // after each partition call we have the correct elemet at position q
 // t.c.=O(nlogn) for best and avg case and O(n^2) for worst case(when array is sorted either in ascending or descending order)
-// s.c.=O(1) its an inplace sorting algorithm
+// s.c.=O(1) its an inplace sorting algorithm, but its not a stable sorting algorithm.
 import java.util.*;
 
 class Main {
