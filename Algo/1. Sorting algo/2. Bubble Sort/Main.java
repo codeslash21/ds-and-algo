@@ -1,5 +1,5 @@
 // after every iteration of outer for loop we place the max element from the unsorted array to its correct position. Means after ith iteration ith max value will be at the 
-// correct position
+// correct position. Its a stable and inplace sorting algorithm.
 // t.c.=O(n) for best case(when array is already sorted in increasing order) and O(n^2) for worst case(when array is sorted in decreasing order)
 // s.c.=O(1), its inplace algorithm
 import java.util.*;
