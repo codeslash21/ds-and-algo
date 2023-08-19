@@ -18,7 +18,7 @@ class InfixToPostfix {
   static String infixPostfix(String exp) {
     String result = new String("");
     Stack<Character> stack = new Stack<>();
-    for(int i=0;i<exp.length;i++) {
+    for(int i=0;i<exp.length();i++) {
       char c = exp.charAt(i);
       if(Character.isLetterOrDigit(c))
         result+=c;
